@@ -15,12 +15,12 @@ namespace Queue
             bool isQueueEmpty = false;
             int storeBallance = 0;
 
-            FillQueue(listOfPurchase , prices);
+            FillQueue(listOfPurchase, prices);
 
             while (isQueueEmpty == false)
             {
                 Console.WriteLine($"В магазин зашел покупатель и совершил покупок на {listOfPurchase .Peek()} тугриков. Осталось покупателей в очереди - {listOfPurchase .Count() -1}");
-                storeBallance += listOfPurchase .Dequeue();
+                storeBallance += listOfPurchase.Dequeue();
                 Console.WriteLine($"Баланс магазина - {storeBallance} тугриков");
 
                 if (listOfPurchase .Count == 0)
