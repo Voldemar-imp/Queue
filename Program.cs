@@ -10,19 +10,20 @@ namespace Queue
     {
         static void Main(string[] args)
         {
-            Queue <int> purchasesPrices = new Queue <int>();
+            Queue <int> listOfPurchase = new Queue <int>();
+            int[] prices = { 456, 775, 345, 43, 808, 335, 18, 115, 452 };
             bool isQueueEmpty = false;
             int storeBallance = 0;
 
-            FillQueue(purchasesPrices);
+            FillQueue(listOfPurchase , prices);
 
             while (isQueueEmpty == false)
             {
-                Console.WriteLine($"В магазин зашел покупатель и совершил покупок на {purchasesPrices.Peek()} тугриков. Осталось покупателей в очереди - {purchasesPrices.Count() -1}");
-                storeBallance += purchasesPrices.Dequeue();
+                Console.WriteLine($"В магазин зашел покупатель и совершил покупок на {listOfPurchase .Peek()} тугриков. Осталось покупателей в очереди - {listOfPurchase .Count() -1}");
+                storeBallance += listOfPurchase .Dequeue();
                 Console.WriteLine($"Баланс магазина - {storeBallance} тугриков");
 
-                if (purchasesPrices.Count == 0)
+                if (listOfPurchase .Count == 0)
                 {
                     isQueueEmpty = true;
                 }
@@ -32,16 +33,11 @@ namespace Queue
             }
         }
 
-        static void FillQueue(Queue<int> purchasesPrices)
+        static void FillQueue(Queue<int> listOfPurchase, int[] prices)
         {
-            Random random = new Random();
-            int numberOfBuyers = 10;
-            int priceMin = 10;
-            int priceMax = 1000;
-
-            for (int i = 0; i < numberOfBuyers; i++)
+            for (int i = 0; i < prices.Length; i++)
             {
-                purchasesPrices.Enqueue(random.Next (priceMin,priceMax+1));
+                listOfPurchase.Enqueue(prices[i]);
             }
         }
     }
