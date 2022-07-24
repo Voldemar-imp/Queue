@@ -23,7 +23,7 @@ namespace Queue
                 storeBallance += listOfPurchase.Dequeue();
                 Console.WriteLine($"Баланс магазина - {storeBallance} тугриков");
 
-                if (listOfPurchase .Count == 0)
+                if (listOfPurchase.Count == 0)
                 {
                     isQueueEmpty = true;
                 }
